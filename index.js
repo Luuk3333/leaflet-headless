@@ -91,6 +91,21 @@ if (!global.L) {
             callback(data);
         });
     };
+
+    L.Map.prototype.getImageBuffer = function (callback, type = 'image/png', encoderOptions = 0.92) {
+        var leafletImage = require('node-leaflet-image');
+
+        leafletImage(this, function (err, canvas) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            var data = canvas
+                .toDataURL(type, encoderOptions)
+                .replace(/^data:image\/\w+;base64,/, '');
+            callback(new Buffer.from(data, 'base64'));
+        });
+    };
 }
 
 module.exports = global.L;

@@ -54,7 +54,7 @@ map.saveImage('test.png', function (filename) {
 });
 ```
 
-or
+### Getting images
 
 `L.Map.getImageBase64(callback)`: Call `callback` when ready with image as base64 string.
 
@@ -66,6 +66,14 @@ map.getImageBase64(function (base64) {
 which outputs:
 ```
 data:image/png;base64,iVBORw0KGgoAAA...
+```
+
+`L.Map.getImageBuffer(callback, type, encoderOptions)`: Call `callback` when ready with buffer.
+
+```JavaScript
+map.getImageBuffer(function (buffer) {
+    console.log(buffer.byteLength);
+}, 'image/jpeg', 0.92);
 ```
 
 ### Other examples:
