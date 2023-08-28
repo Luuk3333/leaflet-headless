@@ -54,6 +54,20 @@ map.saveImage('test.png', function (filename) {
 });
 ```
 
+or
+
+`L.Map.getImageBase64(callback)`: Call `callback` when ready with image as base64 string.
+
+```JavaScript
+map.getImageBase64(function (base64) {
+    console.log(base64);
+});
+```
+which outputs:
+```
+data:image/png;base64,iVBORw0KGgoAAA...
+```
+
 ### Other examples:
  - `examples/leaflet-image/`, using [leaflet-image](https://github.com/mapbox/leaflet-image) to output a `.png`.
  - `examples/choropleth/`, [Choropleth tutorial from leafletjs.com](http://leafletjs.com/examples/choropleth.html) using [leaflet-image](https://github.com/mapbox/leaflet-image) to output a `.png`.

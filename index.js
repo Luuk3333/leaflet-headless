@@ -78,6 +78,19 @@ if (!global.L) {
             });
         });
     };
+
+    L.Map.prototype.getImageBase64 = function (callback) {
+        var leafletImage = require('node-leaflet-image');
+
+        leafletImage(this, function (err, canvas) {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            let data = canvas.toDataURL();
+            callback(data);
+        });
+    };
 }
 
 module.exports = global.L;
